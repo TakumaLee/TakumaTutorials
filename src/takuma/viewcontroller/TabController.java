@@ -11,7 +11,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TabHost;
 
-public class CLTabController implements TabHost.OnTabChangeListener {
+public class TabController implements TabHost.OnTabChangeListener {
 	
 	private FragmentActivity mActivity;
     private TabHost mTabHost;
@@ -50,7 +50,7 @@ public class CLTabController implements TabHost.OnTabChangeListener {
         }
     }
 
-    public CLTabController(FragmentActivity activity, TabHost tabHost, int containerId) {
+    public TabController(FragmentActivity activity, TabHost tabHost, int containerId) {
         mActivity = activity;
         mTabHost = tabHost;
         mContainerId = containerId;
