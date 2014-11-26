@@ -138,125 +138,63 @@ public class Utils {
     }
     
     public static String getLanguage(String s) {
-    	switch (s) {
-		case "en_US":
-			return "English";
-		case "de_DE":
-			return "German";
-		case "zh_CN":
-			return "Chinese (Simplified)";
-		case "zh_TW":
-			return "Chinese (Traditional)";
-		case "cs_CZ":
-			return "Czech";
-		case "nl_BE":
-			return "Dutch";
-		case "nl_NL":
-			return "Dutch";
-		case "en_AU":
-			return "English";
-		case "en_GB":
-			return "English";
-		case "en_CA":
-			return "English";
-		case "en_NZ":
-			return "English";
-		case "en_SG":
-			return "English";
-		case "fr_BE":
-			return "French";
-		case "fr_CA":
-			return "French";
-		case "fr_FR":
-			return "French";
-		case "fr_CH":
-			return "French";
-		case "de_AT":
-			return "German";
-		case "de_LI":
-			return "German";
-		case "de_CH":
-			return "German";
-		case "it_IT":
-			return "Italian";
-		case "it_CH":
-			return "Italian";
-		case "ja_JP":
-			return "Japanese";
-		case "ko_KR":
-			return "Korean";
-		case "pl_PL":
-			return "Polish ";
-		case "ru_RU":
-			return "Russian";
-		case "es_ES":
-			return "Spanish ";
-		case "ar_EG":
-			return "Arabic";
-		case "ar_IL":
-			return "Arabic";
-		case "bg_BG":
-			return "Bulgarian";
-		case "ca_ES":
-			return "Catalan";
-		case "hr_HR":
-			return "Croatian";
-		case "da_DK":
-			return "Danish";
-		case "en_IN":
-			return "English";
-		case "en_IE":
-			return "English";
-		case "en_ZA":
-			return "English";
-		case "fi_FI":
-			return "Finnish";
-		case "el_GR":
-			return "Greek";
-		case "iw_IL":
-			return "Hebrew";
-		case "hi_IN":
-			return "Hindi";
-		case "hu_HU":
-			return "Hungarian";
-		case "in_ID":
-			return "Indonesian";
-		case "lv_LV":
-			return "Latvian";
-		case "lt_LT":
-			return "Lithuanian";
-		case "nb_NO":
-			return "Norwegian-Bokmol";
-		case "pt_BR":
-			return "Portuguese";
-		case "pt_PT":
-			return "Portuguese";
-		case "ro_RO":
-			return "Romanian";
-		case "sr_RS":
-			return "Serbian";
-		case "sk_SK":
-			return "Slovak";
-		case "sl_SI":
-			return "Slovenian";
-		case "es_US":
-			return "Spanish";
-		case "sv_SE":
-			return "Swedish";
-		case "tl_PH":
-			return "Tagalog";
-		case "th_TH":
-			return "Thai";
-		case "tr_TR":
-			return "Turkish";
-		case "uk_UA":
-			return "Ukrainian";
-		case "vi_VN":
-			return "Vietnamese";
-
-		default:
-			return "English";
-		}
+    	return s.equals("en_US") ? "English"    :
+            s.equals("de_DE") ? "German"     :
+            s.equals("zh_CN") ? "Chinese (Simplified)"   :
+            s.equals("zh_TW") ? "Chinese (Traditional)"  :
+            s.equals("cs_CZ") ? "Czech"      :
+            s.equals("nl_BE") ? "Dutch"      :
+            s.equals("nl_NL") ? "Dutch"      :
+            s.equals("en_AU") ? "English"    :
+            s.equals("en_GB") ? "English"    :
+            s.equals("en_CA") ? "English"    :
+            s.equals("en_NZ") ? "English"    :
+            s.equals("en_SG") ? "English"    :
+            s.equals("fr_BE") ? "French"     :
+            s.equals("fr_CA") ? "French"     :
+            s.equals("fr_FR") ? "French"     :
+            s.equals("fr_CH") ? "French"     :
+            s.equals("de_AT") ? "German"     :
+            s.equals("de_LI") ? "German"     :
+            s.equals("de_CH") ? "German"     :
+            s.equals("it_IT") ? "Italian"    :
+            s.equals("it_CH") ? "Italian"    :
+            s.equals("ja_JP") ? "Japanese"   :
+            s.equals("ko_KR") ? "Korean"     :
+            s.equals("pl_PL") ? "Polish"     :
+            s.equals("ru_RU") ? "Russian"    :
+            s.equals("es_ES") ? "Spanish"    :
+            s.equals("ar_EG") ? "Arabic"     :
+            s.equals("ar_IL") ? "Arabic"     :
+            s.equals("bg_BG") ? "Bulgarian"  :
+            s.equals("ca_ES") ? "Catalan"    :
+            s.equals("hr_HR") ? "Croatian"   :
+            s.equals("da_DK") ? "Danish"     :
+            s.equals("en_IN") ? "English"    :
+            s.equals("en_IE") ? "English"    :
+            s.equals("en_ZA") ? "English"    :
+            s.equals("fi_FI") ? "Finnish"    :
+            s.equals("el_GR") ? "Greek"      :
+            s.equals("iw_IL") ? "Hebrew"     :
+            s.equals("hi_IN") ? "Hindi"      :
+            s.equals("hu_HU") ? "Hungarian"  :
+            s.equals("in_ID") ? "Indonesian" :
+            s.equals("lv_LV") ? "Latvian"    :
+            s.equals("lt_LT") ? "Lithuanian" :
+            s.equals("nb_NO") ? "Norwegian-Bokmol"     :
+            s.equals("pt_BR") ? "Portuguese" :
+            s.equals("pt_PT") ? "Portuguese" :
+            s.equals("ro_RO") ? "Romanian"   :
+            s.equals("sr_RS") ? "Serbian"    :
+            s.equals("sk_SK") ? "Slovak"     :
+            s.equals("sl_SI") ? "Slovenian"  :
+            s.equals("es_US") ? "Spanish"    :
+            s.equals("sv_SE") ? "Swedish"    :
+            s.equals("tl_PH") ? "Tagalog"    :
+            s.equals("th_TH") ? "Thai"       :
+            s.equals("tr_TR") ? "Turkish"    :
+            s.equals("uk_UA") ? "Ukrainian"  :
+            s.equals("vi_VN") ? "Vietnamese" : "English";
     }
     
     /**
