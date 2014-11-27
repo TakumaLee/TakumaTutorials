@@ -16,33 +16,48 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
+import android.os.Process;
 import android.util.Log;
 
 public class HttpPostOOMAsyncTask extends AsyncTask<String, Integer, String> {
 	
 	JSONObject sendParams;
+	boolean isHighestPriority = false;
+	private int timeout = 30000;
 	
-	public HttpPostOOMAsyncTask(JSONObject params) {
+	public HttpPostOOMAsyncTask(JSONObject params, boolean isHighest, int timeout) {
 		this.sendParams = params;
+		this.isHighestPriority = isHighest;
+		if (timeout != 0)
+			this.timeout = timeout;
 	}
 
 	@Override
 	protected String doInBackground(String... params) {
+		if (isHighestPriority)
+			Process.setThreadPriority(-19);
 		String url = params[0];
 		String result = "";
-		
+//		Log.v("Post", sendParams.toString());
 		HttpClient client = new DefaultHttpClient();
 		HttpPost post = new HttpPost(url);
+		HttpParams httpParams = new BasicHttpParams();
+		HttpConnectionParams.setConnectionTimeout(httpParams, timeout);
+        HttpConnectionParams.setSoTimeout(httpParams, timeout);
+        post.setParams(httpParams);
 		post.addHeader("Accept-Language", Locale.getDefault().toString());
-		post.setHeader("Content-Type", "application/json; charset=UTF-8");
+//		post.setHeader("Content-Type", "application/json; charset=UTF-8");
 		try {
-			StringEntity se = new StringEntity(sendParams.toString());
+			StringEntity se = new StringEntity(sendParams.toString(), HTTP.UTF_8);
 			post.setEntity(se);
-			
+			se.setContentType("application/json");
 			HttpResponse response = client.execute(post);
 			
 			HttpEntity entity = response.getEntity();
@@ -54,6 +69,7 @@ public class HttpPostOOMAsyncTask extends AsyncTask<String, Integer, String> {
 		        sb.append(line);
 		    }
 		    result = sb.toString();
+		    Log.v("ResultOnPost", result);
 			return result;
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
@@ -63,6 +79,11 @@ public class HttpPostOOMAsyncTask extends AsyncTask<String, Integer, String> {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	@Override
+	protected void onPostExecute(String result) {
+		super.onPostExecute(result);
 	}
 
 }

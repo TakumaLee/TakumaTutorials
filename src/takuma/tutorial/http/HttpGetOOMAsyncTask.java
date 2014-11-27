@@ -1,7 +1,6 @@
 package takuma.tutorial.http;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.InputStreamReader;
 
 import org.apache.http.HttpEntity;
